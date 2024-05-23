@@ -1,14 +1,16 @@
 <?php
+session_start();
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name = $_POST["name"];
         $username = $_POST["username"];
         $email = $_POST["email"];
         $message = $_POST["message"];
-
-
-    $to = "socelsergi@gmail.com";
-    $subject = "Nuevo mensaje del formulario de contacto";
-    $body = "Nombre: $name\n Usuario: $username\n Mail: $email\n Mensaje: $message";
+        
+        $to = "socelsergi@gmail.com";
+        $subject = "Nuevo mensaje del formulario de contacto";
+        $body = "Nombre: $name\n Usuario: $username\n Mail: $email\n Mensaje: $message";
+        
 
     if(mail($to, $subject, $body)){
         echo "El mensaje se ha enviado";
